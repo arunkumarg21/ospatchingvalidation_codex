@@ -1,0 +1,3 @@
+PowerShell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\temp\Phase1_RunID_Framework\Scripts\Invoke-PatchValidationProduction.ps1" -Stage PRE -PatchBatchId "MAY2026-PROD-WAVE1" -Mode PATCH -FrameworkRoot "C:\temp\Phase1_RunID_Framework" -RawServerListFile "C:\temp\PatchingServers.txt" -ValidatedServerListFile "C:\temp\PatchingServers.Validated.txt"
+
+PowerShell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\temp\Phase1_RunID_Framework\Scripts\Invoke-PatchValidationProduction.ps1" -Stage POST -PatchBatchId "MAY2026-PROD-WAVE1" -Mode PATCH -FrameworkRoot "C:\temp\Phase1_RunID_Framework" -RawServerListFile "C:\temp\PatchingServers.txt" -ValidatedServerListFile "C:\temp\PatchingServers.Validated.txt"
