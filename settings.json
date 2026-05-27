@@ -1,0 +1,43 @@
+{
+  "RepositoryServer": "localhost",
+  "RepositoryDatabase": "AdminDB",
+  "ServerListFile": "E:\\OS_Patching_Validation\\PatchingServers.txt",
+  "LogRoot": "E:\\OS_Patching_Validation\\Logs",
+  "RetryCount": 2,
+  "RetryDelaySeconds": 10,
+  "CommandTimeoutSeconds": 120,
+  "SqlConnectionTimeoutSeconds": 5,
+  "ValidationTimeoutSeconds": 90,
+  "TrustServerCertificate": true,
+  "DatabaseMailProfile": "Production Database Mail",
+  "MailRecipients": "dba-team@company.com",
+  "RetentionDays": 90,
+  "ValidationTypes": [
+    "ServerStatus",
+    "SQLServices",
+    "WindowsServices",
+    "DatabaseStatus",
+    "FailedAgentJobs",
+    "MirroringStatus",
+    "LogShippingStatus",
+    "ReplicationJobs",
+    "AvailabilityGroupStatus",
+    "WindowsClusterStatus",
+    "SqlErrorLogSeverity",
+    "WindowsEventLog",
+    "SQLBuildVersion",
+    "WindowsPatchHistory"
+  ],
+  "AgentJobFailureLookbackMinutes": 30,
+  "WindowsEventLogLookbackMinutes": 60,
+  "WindowsPatchHistoryCount": 5,
+  "WindowsServices": [
+    "ClusSvc",
+    "EventLog",
+    "LanmanServer",
+    "LanmanWorkstation",
+    "RpcSs",
+    "W32Time",
+    "Winmgmt"
+  ]
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SQL Patch Validation Report</title>
+  <style>
+    body { font-family: Calibri, Arial, sans-serif; color: #1f2933; margin: 24px; }
+    h2 { margin: 0 0 8px 0; }
+    h3 { margin: 22px 0 8px 0; }
+    .meta, table { border-collapse: collapse; width: 100%; max-width: 1100px; }
+    th { background: #2f5d8c; color: #fff; text-align: left; padding: 7px; border: 1px solid #1f466b; }
+    td { padding: 7px; border: 1px solid #c8d1dc; font-size: 13px; }
+    .pill { display: inline-block; min-width: 54px; padding: 3px 8px; border-radius: 10px; text-align: center; font-weight: 700; }
+    .pass { background: #dff4e5; color: #176b35; }
+    .warn { background: #fff3cd; color: #856404; }
+    .error { background: #f8d7da; color: #842029; }
+    .info { background: #dbeafe; color: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <h2>SQL Patch Validation Report</h2>
+  <table class="meta">
+    <tr><th>Patch Batch</th><th>PRE Run</th><th>POST Run</th><th>Validated By</th><th>Execution Host</th><th>Status</th></tr>
+    <tr><td>MAY2026-PROD-WAVE1</td><td>1010</td><td>1011</td><td>DOMAIN\dba_user</td><td>DBA-JUMP01</td><td><span class="pill warn">WARN</span></td></tr>
+  </table>
+
+  <h3>Validation Summary</h3>
+  <table>
+    <tr><th>Validation Type</th><th>Total Checks</th><th>PASS</th><th>WARN</th><th>ERROR</th><th>INFO</th></tr>
+    <tr><td>ServerStatus</td><td>12</td><td>12</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>DatabaseStatus</td><td>146</td><td>145</td><td>1</td><td>0</td><td>0</td></tr>
+    <tr><td>FailedAgentJobs</td><td>12</td><td>11</td><td>1</td><td>0</td><td>0</td></tr>
+    <tr><td>AvailabilityGroupStatus</td><td>24</td><td>22</td><td>0</td><td>0</td><td>2</td></tr>
+    <tr><td>SQLBuildVersion</td><td>12</td><td>0</td><td>0</td><td>0</td><td>12</td></tr>
+    <tr><td>WindowsPatchHistory</td><td>12</td><td>0</td><td>0</td><td>0</td><td>12</td></tr>
+  </table>
+
+  <h3>Deviation Detail</h3>
+  <table>
+    <tr><th>Server</th><th>Validation Type</th><th>Result</th><th>Deviation</th><th>PRE Value</th><th>POST Value</th><th>Status</th></tr>
+    <tr><td>SQL02</td><td>SQLBuildVersion</td><td>SQLBuild</td><td>VALUE_CHANGED</td><td>15.0.4312.2 CU20</td><td>15.0.4385.2 CU23</td><td><span class="pill info">INFO</span></td></tr>
+    <tr><td>SQL02</td><td>WindowsPatchHistory</td><td>KB5037765</td><td>NEW_IN_POST</td><td></td><td>Security Update</td><td><span class="pill info">INFO</span></td></tr>
+    <tr><td>SQL03</td><td>DatabaseStatus</td><td>AppDB_Archive</td><td>STATUS_CHANGED</td><td>ONLINE</td><td>RECOVERY_PENDING</td><td><span class="pill warn">WARN</span></td></tr>
+    <tr><td>SQL05</td><td>FailedAgentJobs</td><td>DBA_Backup_Check</td><td>NEW_IN_POST</td><td></td><td>The job failed in the last 30 minutes</td><td><span class="pill warn">WARN</span></td></tr>
+  </table>
+
+  <h3>Optional Features</h3>
+  <table>
+    <tr><th>Server</th><th>Feature</th><th>Result</th><th>Status</th></tr>
+    <tr><td>SQL07</td><td>Availability Group</td><td>Always On HADR not enabled or no local replica found</td><td><span class="pill info">INFO</span></td></tr>
+    <tr><td>SQL08</td><td>Log Shipping</td><td>No log shipping configuration found</td><td><span class="pill info">INFO</span></td></tr>
+  </table>
+</body>
+</html>
